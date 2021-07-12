@@ -6,7 +6,7 @@ class Board():
     """
         A class used to represent a square two dimential game board.
         A player's board consists for a list of Space objects in row major
-        order.  each space may contain a value of 0 if unocupied and 1 if 
+        order.  each space may contain a value of 0 if unocupied and 1 if
         occupied.
     """
 
@@ -16,21 +16,21 @@ class Board():
         Args:
             n (Integer): number of rows
         """
-        self.p = n
+        self.p = n ** 2
         self.sp = []
         self.row = []
         self.col = []
         self.diags = []
 
-        for i in range(0, n):
+        for i in range(0, self.p):
             self.sp.append(Space())
 
-        for i in range(0, self.p):
-            self.row.append(self.sp[i*self.p:(i+1)*self.p])
-            self.col.append(self.sp[i:n:self.p])
+        for i in range(0, n):
+            self.row.append(self.sp[i*n:(i+1)*n])
+            self.col.append(self.sp[i:self.p:n])
 
-        self.diags.append(self.sp[0:n:self.p+1])
-        self.diags.append(self.sp[self.p-1:n-(self.p-1):self.p-1])
+        self.diags.append(self.sp[0:self.p:n+1])
+        self.diags.append(self.sp[n:self.p:n-1])
         self.diags[1].reverse()
 
     def __repr__(self):
@@ -52,7 +52,7 @@ class Board():
         """Resets all the player's spaces to 0 (unoccupied)
 
         """
-        for i in range(0, self.p**2):
+        for i in range(0, self.p):
             self.sp[i].reset()
 
     def _binToDecimal(self, s):
@@ -75,7 +75,7 @@ class Board():
         return dval
 
     def winner(self):
-        """Determines if the player's board contains a winning row, column, or diagonal 
+        """Determines if the player's board contains a winning row, column, or diagonal
 
         Returns:
             Tuple: (Boolean, integer)
