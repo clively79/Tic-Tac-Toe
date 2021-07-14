@@ -86,3 +86,17 @@ class TicTacToeBoard(Board):
                 return True, 6 + i
 
         return False, None
+
+
+def main():
+    player = TicTacToeBoard()
+    player.setSpace(2, 0)
+    player.setSpace(1, 1)
+    player.setSpace(0, 2)
+    print(player.winner())
+    player.reset()
+    print("Done!")
+
+
+if __name__ == "__main__":
+    main()
