@@ -71,3 +71,5 @@ class Board():
         for i in range(len(args)):
             if (args[i].matrix[r][c] == 1):
                 return True
+
+        return False
