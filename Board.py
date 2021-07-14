@@ -24,8 +24,8 @@ class Board():
         """
         self.rows = r
         self.cols = c
-        self.row = [0] * self.r
-        self.col = [0] * self.c
+        self.row = [0] * self.rows
+        self.col = [0] * self.cols
         self.matrix = []
         for i in range(self.rows):
             self.matrix.append([])
@@ -38,6 +38,11 @@ class Board():
         """resets the board to its initial state
         """
         self.__init__(self.r, self.c)
+
+    def reset(self, n, m):
+        """resets the board to a new configuration
+        """
+        self.__init__(n, m)
 
     def setSpace(self, r, c):
         """sets a space on a game board to claimed or occupied only if
