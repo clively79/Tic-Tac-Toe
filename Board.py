@@ -16,6 +16,12 @@ class Board():
     """
 
     def __init__(self, r, c):
+        """Class Constructor
+
+        Args:
+            r (Integer): Number of rows on the game Board
+            c ([type]): Number of columns on the game board
+        """
         self.rows = r
         self.cols = c
         self.row = [0] * self.r
@@ -29,9 +35,18 @@ class Board():
         return str(self.matrix)
 
     def reset(self):
+        """resets the board to its initial state
+        """
         self.__init__(self.r, self.c)
 
     def setSpace(self, r, c):
+        """sets a space on a game board to claimed or occupied only if
+            the space is not occupied
+
+        Args:
+            r (Integer): Row 
+            c (Integer): Column
+        """
         if (not self.matrix[r][c]):
             self.matrix[r][c] = 1
             self.row[r] += 2 ** c
@@ -39,6 +54,20 @@ class Board():
 
     @staticmethod
     def occupied(*args, r, c):
+        """
+            Static method: Given a list of Board type objects, if the desired row and column
+            requested is occupied on any of the boards passed, the method will return true.
+            This should be used in any derived class prior to setting a space on a board object
+            to avoid any player claiming an already occupied space.
+
+        Args:
+            r (Integer): Row 
+            c (Integer): Column 
+
+        Returns:
+            Boolean:    True Iff none of the Board Objects passed have already claimed the 
+                        R/C/ space requested.
+        """
         for i in range(len(args)):
             if (args[i].matrix[r][c] == 1):
                 return True
