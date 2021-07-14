@@ -29,7 +29,7 @@ class TicTacToeGame():
 
         Args:
             r (Integer): The Row the player chooses
-            c (Integer): The colum the player chooses
+            c (Integer): The column the player chooses
         """
         if (not Board.occupied(self.player1, self.player2, r=r, c=c)):
             if (self.turn == 1):
