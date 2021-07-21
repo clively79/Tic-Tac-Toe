@@ -6,7 +6,9 @@ class TicTacToeGame():
     """
         A Wrapper class to manage the flow and procedure of a
         player v. player TicTacToe game designed to be implemented 
-        in a GUI environment 
+        in a GUI environment .
+
+        Author: Christopher Lively
     """
 
     def __init__(self):
