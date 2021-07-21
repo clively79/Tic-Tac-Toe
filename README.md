@@ -1,4 +1,8 @@
 # Tic-Tac-Toe
+To run:  associate .pyw file extentions with the pythonw executable and doubleclick, or type `pythonw tictactoe.py` in commandline. This will suppress the python console window.  you can use the python interpereter to run as well, but this will not supress the python console.
+
+This is a work in progress and additonal features are comming.  For now,  to restart a game,  press ctrl-n any time.
+
 A simple Tic-Tac-Toe program, created to exercise some fundamental Python concepts.
 
   I'm Learning python, and I figured creating a simple Tic-Tac-Toe game using object oriented design principals would be an excelent way to learn the language.  This program will use a GUI to setup the game board and a wrapper class to manage the game state and flow.  
