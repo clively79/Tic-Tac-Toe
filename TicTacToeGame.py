@@ -6,9 +6,7 @@ class TicTacToeGame():
     """
         A Wrapper class to manage the flow and procedure of a
         player v. player TicTacToe game designed to be implemented 
-        in a GUI environment .
-
-        Author: Christopher Lively
+        in a GUI environment.
     """
 
     def __init__(self):
@@ -24,6 +22,9 @@ class TicTacToeGame():
 
     def __repr__(self):
         return "TicTacToeGame"
+
+    def occupied(self, r, c):
+        return Board.occupied(self.player1, self.player2, r=r, c=c)
 
     def select(self, r, c):
         """Selects a space on the game board for the current players turn
@@ -43,7 +44,7 @@ class TicTacToeGame():
 
             elif(self.turn == 2):
                 self.player2.setSpace(r, c)
-                self.winner = self.player1.winner()
+                self.winner = self.player2.winner()
                 if (not self.winner[0]):
                     self.swapTurns()
                     self.movesRemaining -= 1
