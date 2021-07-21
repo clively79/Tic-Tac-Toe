@@ -1,10 +1,17 @@
+#!/usr/bin/python3
+
 from tkinter import *
 from tkinter import ttk
 from TicTacToeGame import TicTacToeGame
 
 
 class TicTacToeGUI():
+    """The class the governs the TicTacToe GUI environment
+    """
+
     def __init__(self):
+        """Constructor class to build the root window and construct the game space
+        """
         self.root = Tk()
         self.game = TicTacToeGame()
         self.root.title("Tic-Tac_toe v2.0")
@@ -25,6 +32,11 @@ class TicTacToeGUI():
         self.root.mainloop()
 
     def restart(self):
+        """
+            Resets reinitializes the TicTacToeGame object
+            Destroys the previous canvas and creates a new canvas and 
+            recreates the New Game keybinding
+        """
         self.game.reset()
         self.canvas.destroy()
         self.canvas = Canvas(self.root, height=310,
@@ -37,6 +49,19 @@ class TicTacToeGUI():
         self.canvas.bind('<1>', self.clickEvent)
 
     def clickEvent(self, event):
+        """ Displays X/O images on the game space based on where the player clicks 
+        and which turn the TicTacToeGame state is in.  
+
+        If the TicTacToeGame Object is in a winning state, calls the winLine method
+        to draw a red line of the winning combination.  no further moves will be 
+        allowed and the user must create a new game to continue.
+
+        Ctrl-n will start a new game.
+
+
+        Args:
+            event (Object): Bind event properties
+        """
         if (event.y <= 100 and not self.game.winner[0]):
             if (event.x <= 100):
                 if (not self.game.occupied(0, 0)):
@@ -143,6 +168,9 @@ class TicTacToeGUI():
             self.winLine()
 
     def winLine(self):
+        """Draws a red line over the row/column/diagonal indicated in the 
+        second item stored in the TicTacToeGame.Winner tuple.  
+        """
         if (self.game.winner[1] == 0):
             self.canvas.create_line(5, 50, 305, 50, width=5, fill='red')
         elif (self.game.winner[1] == 1):
