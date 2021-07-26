@@ -82,7 +82,7 @@ class TicTacToeGUI():
                 self.drawX(r, c)
 
             elif self.game.turn == 2:
-                self.game.select(event.y // 100, event.x // 100)
+                self.game.select(r, c)
                 self.drawO(r, c)
 
             if self.game.winner[0]:
